@@ -17,6 +17,7 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 - WebGL의 개요와 작동방식을 이해하기 위한 기초부분을 학습할 것입니다.
 - 삼각형과 사각형 만들기, 색상추가, 회전 운동, 3D 개체로 만들기, 텍스쳐 추가
 - 위와 같은 예제들을 만들어보면서 최종적으로 돛단배 객체를 만들 것입니다.
+- http://davidscottlyons.com/threejs/presentations/frontporch14/#slide-0
 
 ####  week2 (8/1~8/7)
 
