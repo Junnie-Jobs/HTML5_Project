@@ -8,7 +8,7 @@
 
 ### 사용할 HTML5 명세
 
-WebGL, Three.js(대표적인 자바스크립트 3D 라이브러리입니다.)
+WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다.)
 
 ### 개발 계획
 
@@ -20,11 +20,14 @@ WebGL, Three.js(대표적인 자바스크립트 3D 라이브러리입니다.)
 
 ####  week2 (8/1~8/7)
 
-- 돛단배 객체의 움직임(마우스 컨트롤) 구현
+- 돛단배 객체의 움직임(키보드 컨트롤) 구현
 
 ####  week3 (8/8~8/14)
 
 - 돛단배 객체가 항해항 바다 배경오브젝트 구현
+- 학습 참고 링크
+- http://threejs.org/examples/#webgl_shaders_ocean
+- http://threejs.org/examples/#webgl_shaders_ocean2
 
 ####  week4 (8/15~8/21)
 
