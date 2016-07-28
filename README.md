@@ -12,39 +12,36 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 
 ### 개발 계획
 
-#### week1 (7/25~7/31)
+#### week1 (8/1~8/7)
 
 - WebGL의 개요와 작동방식을 이해하기 위한 기초부분을 학습할 것입니다.
 - 삼각형과 사각형 만들기, 색상추가, 회전 운동, 3D 개체로 만들기, 텍스쳐 추가
 - 위와 같은 예제들을 만들어보면서 최종적으로 돛단배 객체를 만들 것입니다.
 - http://davidscottlyons.com/threejs/presentations/frontporch14/#slide-0
 
-####  week2 (8/1~8/7)
+####  week2 (8/8~8/14)
 
 - 돛단배 객체의 움직임(키보드 컨트롤) 구현
 - webGL, threejs의 키보드 이벤트에 대해 학습한다
 - https://stemkoski.github.io/Three.js/Keyboard.html
 - http://www.johannes-raida.de/tutorials/three.js/tutorial07/tutorial07.htm
 
-####  week3 (8/8~8/14)
+####  week3 (8/15~8/21)
 
 - 돛단배 객체가 항해항 바다 배경오브젝트 구현
 - 학습 참고 링크
 - http://threejs.org/examples/#webgl_shaders_ocean
 - http://threejs.org/examples/#webgl_shaders_ocean2
 
-####  week4 (8/15~8/21)
+####  week4 (8/22~8/28)
 
 - 돛단배 객체가 항해하며 마주할 수 있는 섬 객체 1개 구현
 - 섬 객체에 도달하는 이벤트 발생시 보여줄 360도 영상(유투브 영상 이용) 세팅
 
-####  week5 (8/22~8/28)
+####  week5 (8/29~9/4)
 
 - 돛단배 객체의 항해와 섬에 도달할 시 보여지는 이벤트 전체 시뮬레이션
 
-####  week6 (8/29~9/4)
-
-- 리팩토링 및 추가적인 섬 객체 구현
 
 ####  참고 사이트
 
