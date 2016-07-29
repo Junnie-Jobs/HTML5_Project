@@ -14,10 +14,12 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 
 #### week1 (8/1~8/7)
 
-- WebGL의 개요와 작동방식을 이해하기 위한 기초부분을 학습할 것입니다.
-- 삼각형과 사각형 만들기, 색상추가, 회전 운동, 3D 개체로 만들기, 텍스쳐 추가
-- 위와 같은 예제들을 만들어보면서 최종적으로 돛단배 객체를 만들 것입니다.
-- http://davidscottlyons.com/threejs/presentations/frontporch14/#slide-0
+- WebGl을 위한 기본적인 함수들의 기능을 학습
+- Scene/renderer/camera/Basic Object
+- 아래에 나와있는 예제들을 만들어보면서 최종적으로 돛단배 객체를 만들 것입니다.
+- https://aerotwist.com/tutorials/getting-started-with-three-js/
+- http://blog.teamtreehouse.com/the-beginners-guide-to-three-js
+- 참고 학습링크)http://davidscottlyons.com/threejs/presentations/frontporch14/#slide-0
 
 ####  week2 (8/8~8/14)
 
@@ -28,7 +30,8 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 
 ####  week3 (8/15~8/21)
 
-- 돛단배 객체가 항해항 바다 배경오브젝트 구현
+- 돛단배 객체가 항해할 바다 배경오브젝트 구현
+- 카메라 시점과, 조명에 대한 개념을 학습한다.
 - 학습 참고 링크
 - http://threejs.org/examples/#webgl_shaders_ocean
 - http://threejs.org/examples/#webgl_shaders_ocean2
@@ -36,11 +39,12 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 ####  week4 (8/22~8/28)
 
 - 돛단배 객체가 항해하며 마주할 수 있는 섬 객체 1개 구현
+- http://jeremybouny.fr/ocean/demo/
 - 섬 객체에 도달하는 이벤트 발생시 보여줄 360도 영상(유투브 영상 이용) 세팅
 
 ####  week5 (8/29~9/4)
-
 - 돛단배 객체의 항해와 섬에 도달할 시 보여지는 이벤트 전체 시뮬레이션
+- 리팩토링
 
 
 ####  참고 사이트
