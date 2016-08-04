@@ -21,6 +21,13 @@ WebGL, Three.js, svg(대표적인 자바스크립트 3D 라이브러리입니다
 - http://blog.teamtreehouse.com/the-beginners-guide-to-three-js
 - 참고 학습링크)http://davidscottlyons.com/threejs/presentations/frontporch14/#slide-0
 
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+Goo Engine Library를 사용하여 구현하였습니다.
+처음 커밋에 라이브러리가 많아서 제가 커스터마이징할 코드 구현부가 별로 없었지만, 웹지엘에 대한 학습을 할 수 있었습니다.
+뒷부분으로 갈수록 로직 구현부를 하면서 개념학습한 것들 정리도 함께 올리겠습니다.
+
+
 ####  week2 (8/8~8/14)
 
 - 돛단배 객체의 움직임(키보드 컨트롤) 구현
