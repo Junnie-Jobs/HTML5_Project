@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<title>JunnieJobs Blog</title>
+	<script>
+	if (window.location.protocol==='file:') {
+		console.warn('파일 시스템으로는 이용할 수 없습니다. 서버를 띄워 주세요');
+	}
+	window.goo = {useOwnRequire: true};
+	</script>
+
+	<link rel="icon" href="favicon.png" type="image/png" /> 
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+	
+	<script src="lib/goo.js"></script>
+	<script src="lib/cannon/cannon.min.js"></script>
+	<script src="lib/fsmpack.js"></script>
+	<script src="lib/quadpack.js"></script>	
+	<script src="lib/timelinepack.js"></script>
+	<script src="lib/scriptpack.js"></script>
+	<script src="lib/passpack.js"></script>
+	<script src="lib/particlepack.js"></script>	
+	<script src="lib/animationpack.js"></script>
+	<script src="lib/physicspack.js"></script>
+</head>
+
+<body class="standard-theme ">
+
+	<!--로딩화면-->
+	<div id="loading-screen" class="visible">
+		<div class="content">
+			<div id="progress-bar">
+				<div class="logo"></div>
+				<div id="progress"></div>
+			</div>
+			<h1>출항 준비</h1>
+			
+		</div>
+	</div>
+	<!--로딩화면-->
+
+	<div id="canvas-screen">
+		<div id="canvas-outer">
+			<div id="canvas-inner"><!-- 화면이 뿌려지는 곳 --></div>
+		</div>
+	</div>
+
+	
+	<div id="fallback" style="background-image: url(res/cc37262cfc5389e39e6047ff221638da16b1bf00.jpg)">
+		<h1>WebGL not supported or not enabled</h1>
+	</div>
+
+	<script src="js/CanvasWrapper.js"></script>
+	<script src="js/WebGLSupport.js"></script>
+	<script src="js/GSRVMock.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

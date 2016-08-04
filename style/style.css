@@ -1,0 +1,282 @@
+
+body {
+  height: 100%;
+  margin: 0;
+  background: #1D1D1D;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  letter-spacing: 0.03em;
+  font-weight: 300;
+  overflow: hidden;
+}
+p,
+
+#goo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  opacity: 0;
+  background: #1D1D1D;
+  text-align: center;
+  pointer-events: none;
+  z-index: 9999;
+  -webkit-transition: all 0.5s;
+          transition: all 0.5s;
+}
+#loading-screen.visible {
+  opacity: 1;
+}
+#loading-screen.hidden {
+  display: none;
+}
+#loading-screen .content {
+  width: 80%;
+  max-width: 400px;
+  color: #E5E5E5;
+}
+
+#loading-screen .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  width: auto;
+  height: auto;
+  margin: 10px;
+  background-image: url('../icons/paperBoat.png');
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+@-webkit-keyframes rotateplane {
+  0% {
+    -webkit-transform: perspective(120px) rotateY(0deg);
+            transform: perspective(120px) rotateY(0deg);
+  }
+  30% {
+    -webkit-transform: perspective(120px) rotateY(-179.9deg);
+            transform: perspective(120px) rotateY(-179.9deg);
+  }
+  100% {
+    -webkit-transform: perspective(120px) rotateY(-179.9deg);
+            transform: perspective(120px) rotateY(-179.9deg);
+  }
+}
+
+#progress-bar {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: #363636;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
+}
+#progress-bar > .logo {
+  -webkit-animation: rotateplane 3s infinite ease-in-out;
+          animation: rotateplane 3s infinite ease-in-out;
+}
+#progress {
+  background: #38b3f6;
+  height: 100%;
+  width: 0;
+  -webkit-transition: all 0.2s;
+          transition: all 0.2s;
+}
+#canvas-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  opacity: 0;
+}
+#canvas-screen.visible {
+  opacity: 1;
+}
+#canvas-screen,
+#canvas-screen:focus {
+  outline: none;
+}
+#canvas-outer {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+}
+#canvas-outer,
+#canvas-outer:focus {
+  outline: none;
+}
+#canvas-outer.custom.center-h {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#canvas-outer.custom.center-v {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#canvas-outer.custom #canvas-inner {
+  position: relative;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+}
+#canvas-outer::-webkit-scrollbar,
+#canvas-outer ::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+#canvas-outer::-webkit-scrollbar:vertical,
+#canvas-outer ::-webkit-scrollbar:vertical {
+  width: 7px;
+}
+#canvas-outer::-webkit-scrollbar:horizontal,
+#canvas-outer ::-webkit-scrollbar:horizontal {
+  height: 7px;
+}
+#canvas-outer::-webkit-scrollbar-track,
+#canvas-outer ::-webkit-scrollbar-track {
+  background: #252525;
+  background-color: #252525;
+}
+#canvas-outer::-webkit-scrollbar-thumb,
+#canvas-outer ::-webkit-scrollbar-thumb {
+  background: #313131;
+  background-color: #313131;
+}
+#canvas-outer::-webkit-scrollbar-thumb:hover,
+#canvas-outer ::-webkit-scrollbar-thumb:hover {
+  background: #4b4b4b;
+  background-color: #4b4b4b;
+}
+#canvas-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: default;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+}
+#canvas-inner,
+#canvas-inner:focus {
+  outline: none;
+}
+
+
+#fallback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  color: #E5E5E5;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+#fallback.visible {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+#fallback h1 {
+  font-weight: 700;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 0 0 60px rgba(29, 29, 29, 0.7);
+  letter-spacing: 0.02em;
+}
