@@ -28,6 +28,7 @@ Three.js를 학습하다가 webGL을 구현하기 위해 도와주는 여러 엔
 Three.js와 함께 혼용하여 사용하면서 구현하고자 하던 내용을 추가하려고 합니다.
 뒷부분으로 갈수록 로직 구현부를 하면서 개념학습한 것들 정리도 함께 올리겠습니다.
 
+![](https://github.com/Junnie-Jobs/HTML5_Project/blob/master/%EC%A3%BC%EC%B0%A8%EB%B3%84%20%EC%9E%91%EC%97%85%EC%A7%84%EB%8F%84/1%EC%A3%BC%EC%B0%A8.png?raw=true)
 
 ####  week2 (8/8~8/14)
 
