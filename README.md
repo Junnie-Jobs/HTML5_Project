@@ -39,7 +39,6 @@ Three.js와 함께 혼용하여 사용하면서 구현하고자 하던 내용을
 - webGL, threejs의 키보드 이벤트에 대해 학습한다
 - https://stemkoski.github.io/Three.js/Keyboard.html
 - http://www.johannes-raida.de/tutorials/three.js/tutorial07/tutorial07.htm
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 ####  week3 (8/15~8/21)
 
