@@ -1,6 +1,4 @@
 # HTML5_Project
-<<<<<<< HEAD
-=======
 
 Three.js에 대한 개념을 정리해나가고 있는 에버노트 페이지입니다. 계속해서 추가할 예정입니다.
 https://www.evernote.com/l/ALeJaRh8jcdIMb4pqZ9WbC5AYqpFQqI-jOo
@@ -64,4 +62,4 @@ Three.js와 함께 혼용하여 사용하면서 구현하고자 하던 내용을
 ####  참고 사이트
 
 - https://c1.goote.ch/c8a05c9a6d4a4929a3fa50e6ebdee0c3.scene/
->>>>>>> origin/master
+
