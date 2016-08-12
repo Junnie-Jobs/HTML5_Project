@@ -1,5 +1,8 @@
 # HTML5_Project
 
+Three.js에 대한 개념을 정리해나가고 있는 에버노트 페이지입니다. 계속해서 추가할 예정입니다.
+https://www.evernote.com/l/ALeJaRh8jcdIMb4pqZ9WbC5AYqpFQqI-jOo
+
 ### Naviagation Blog
 
 ### 프로젝트 : 스토리텔링 기반을 위한 블로그 만들기. 컨셉은 항해하는 돛단배
@@ -36,6 +39,8 @@ Three.js와 함께 혼용하여 사용하면서 구현하고자 하던 내용을
 - webGL, threejs의 키보드 이벤트에 대해 학습한다
 - https://stemkoski.github.io/Three.js/Keyboard.html
 - http://www.johannes-raida.de/tutorials/three.js/tutorial07/tutorial07.htm
+- 
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 ####  week3 (8/15~8/21)
 
