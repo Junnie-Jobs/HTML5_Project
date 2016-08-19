@@ -1,0 +1,55 @@
+body {
+  color: #000;
+  font-family:Monospace;
+  font-size:13px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+#info {
+  position: absolute;
+  top: 0px; width: 100%;
+  text-align:center;
+  padding: 5px;
+  font-size: 20px;
+  color: rgba(0,0,0,0.3);
+  margin-top: 20px;
+}
+
+a {
+
+  color: #a06851;
+}
+
+.daytime{
+
+  width: 80px;
+  height: 80px;
+  border: 1px solid white;
+  position: absolute;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 100%;
+  color: white;
+  font-size: 20px;
+  margin: 20px 0 0 20px;
+  cursor: pointer;
+}
+
+.night{
+  width: 80px;
+  height: 80px;
+  border: 1px solid white;
+  position: absolute;;
+  margin: 20px 0 0 120px;;
+  text-align: center;
+  line-height: 80px;
+  border-radius: 100%;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.daytime:hover, .night:hover{
+  background-color: rgba(255,255,255,0.6);
+}
