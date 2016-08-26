@@ -27,6 +27,7 @@ var JunnieJobs_Render_Space = (function(window) {
     initialize();
     view_setting();
     animate();
+
   }
 
   function initialize(){
@@ -169,7 +170,6 @@ var JunnieJobs_Render_Space = (function(window) {
     }
     render();
   }
-
 
   function render() {
 

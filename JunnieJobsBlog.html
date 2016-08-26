@@ -1,40 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 	<head>
-		<title>three.js webgl - geometry - terrain</title>
+		<title>JunnieJobs_Blog</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<style>
-			body {
-				color: #000;
-				font-family:Monospace;
-				font-size:13px;
-				margin: 0px;
-				overflow: hidden;
-			}
-
-			#info {
-				position: absolute;
-				top: 0px; width: 100%;
-				text-align:center;
-				padding: 5px;
-				font-size: 20px;
-				color: rgba(0,0,0,0.3);
-				margin-top: 20px;
-			}
-
-			a {
-
-				color: #a06851;
-			}
-
-		</style>
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<script src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s='   crossorigin='anonymous'></script>
 	</head>
 	<body>
-
 		<div id="info">JunnieJobs Blog</div>
 
-	  <script srr="js/libs/jquery-1.12.0.js"></script>
+		<div class="background_option">
+			<div class="daytime">day</div>
+			<div class="night">night</div>
+		  <a class="waves-effect waves-light btn modal-trigger show" href="#modal1">Modal</a>
+		</div>
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content island_A_video">
+      <h4>About airplane</h4>
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/lJype_TafRk" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
 		<script src="lib/three.js"></script>
 		<script src="js/OBJLoader.js"></script>
 		<script src="js/controls/OrbitControls.js"></script>
@@ -42,245 +31,13 @@
 		<script src="js/WaterShader.js"></script>
 		<script src="js/Detector.js"></script>
 		<script src="js/libs/stats.min.js"></script>
+		<script src="js/THREEx.WindowResize.js"></script>
+		<script src="js/THREEx.KeyboardState.js"></script>
+		<script src="js/THREEx.FullScreen.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	 <script src="js/THREE.TargetCamera.js"></script>
+		<script src="js/rendering.js"></script>
+		<script src="js/app.js"></script>
 
-
-		<!-- function handleKeyDown(event) {
-		if (event.keyCode === 66) { //66 is "b"
-			window.isBDown = true;
-		}
-	}
-
-	function handleKeyUp(event) {
-		if (event.keyCode === 66) {
-			window.isBDown = false;
-		}
-	}
-
-	window.addEventListener('keydown', handleKeyDown, false);
-	window.addEventListener('keyup', handleKeyUp, false); -->
-
-	<script>
-	(function(){
-			function handleKeyDown(event) {
-				console.log(event.keyCode);
-				if (event.keyCode === 38) {
-					window.moveFront = true;
-				}
-
-				if(event.keyCode === 40){
-						window.moveBack = true;
-				}
-		}
-
-			function handleKeyUp(event) {
-				if (event.keyCode === 38) {
-					window.moveFront = false;
-				}
-
-				if(event.keyCode === 40){
-						window.moveBack = false;
-				}
-			}
-
-			window.addEventListener('keydown', handleKeyDown, false);
-			window.addEventListener('keyup', handleKeyUp, false);
-
-
-	})()
-	</script>
-
-
-		<script>
-
-			if ( ! Detector.webgl ) {
-
-				Detector.addGetWebGLMessage();
-				 $("#container").html("");
-			}
-
-			var container, stats;
-			var camera, scene, renderer;
-			var sphere;
-			var boat;
-
-			var parameters = {
-				width: 2000,
-				height: 2000,
-				widthSegments: 250,
-				heightSegments: 250,
-				depth: 2000,
-				param: 4,
-				filterparam: 1
-			};
-
-			var waterNormals;
-
-			init();
-			animate();
-
-			function init() {
-
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
-				// $("body").appned("div");
-
-				renderer = new THREE.WebGLRenderer();
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
-
-				scene = new THREE.Scene();
-
-				camera = new THREE.PerspectiveCamera( 55, window.innerWidth / window.innerHeight, 0.5, 3000000 );
-				camera.position.set( 2000, 750, 2000 );
-
-				//카메라 시점 컨트롤
-				controls = new THREE.OrbitControls( camera, renderer.domElement );
-				controls.enablePan = false;
-				controls.minDistance = 1000.0;
-				controls.maxDistance = 5000.0;
-				controls.maxPolarAngle = Math.PI * 0.495;
-				controls.target.set( 0, 500, 0 );
-
-				//빛 추가
-				scene.add( new THREE.AmbientLight( 0x444444 ) );
-
-				var light = new THREE.DirectionalLight( 0xffffbb, 1 );
-				light.position.set( - 1, 1, - 1 );
-				scene.add( light );
-
-				//바다질감 추가
-				waterNormals = new THREE.TextureLoader().load( 'textures/waternormals.jpg' );
-				waterNormals.wrapS = waterNormals.wrapT = THREE.RepeatWrapping;
-
-				water = new THREE.Water( renderer, camera, scene, {
-					textureWidth: 512,
-					textureHeight: 512,
-					waterNormals: waterNormals,
-					alpha: 	1.0,
-					sunDirection: light.position.clone().normalize(),
-					sunColor: 0xffffff,
-					waterColor: 0x071440,
-					distortionScale: 50.0,
-				} );
-
-				//질감입히기
-				mirrorMesh = new THREE.Mesh(
-					new THREE.PlaneBufferGeometry( parameters.width * 500, parameters.height * 500 ),
-					water.material
-				);
-
-				mirrorMesh.add( water );
-				mirrorMesh.rotation.x = - Math.PI * 0.5;
-				scene.add( mirrorMesh );
-
-
-				// load skybox
-				var cubeMap = new THREE.CubeTexture( [] );
-				cubeMap.format = THREE.RGBFormat;
-
-				var loader = new THREE.ImageLoader();
-				loader.load( 'textures/skyboxsun25degtest.png', function ( image ) {
-
-					var getSide = function ( x, y ) {
-
-						var size = 1024;
-
-						var canvas = document.createElement( 'canvas' );
-						canvas.width = size;
-						canvas.height = size;
-
-						var context = canvas.getContext( '2d' );
-						context.drawImage( image, - x * size, - y * size );
-
-						return canvas;
-
-					};
-
-					cubeMap.images[ 0 ] = getSide( 2, 1 ); // px
-					cubeMap.images[ 1 ] = getSide( 0, 1 ); // nx
-					cubeMap.images[ 2 ] = getSide( 1, 0 ); // py
-					cubeMap.images[ 3 ] = getSide( 1, 2 ); // ny
-					cubeMap.images[ 4 ] = getSide( 1, 1 ); // pz
-					cubeMap.images[ 5 ] = getSide( 3, 1 ); // nz
-					cubeMap.needsUpdate = true;
-
-				} );
-
-				var cubeShader = THREE.ShaderLib[ 'cube' ];
-				cubeShader.uniforms[ 'tCube' ].value = cubeMap;
-
-				var skyBoxMaterial = new THREE.ShaderMaterial( {
-					fragmentShader: cubeShader.fragmentShader,
-					vertexShader: cubeShader.vertexShader,
-					uniforms: cubeShader.uniforms,
-					depthWrite: false,
-					side: THREE.BackSide
-				} );
-
-				var skyBox = new THREE.Mesh(
-					new THREE.BoxGeometry( 1000000, 1000000, 1000000 ),
-					skyBoxMaterial
-				);
-
-				scene.add( skyBox );
-
-
-				var geometry = new THREE.IcosahedronGeometry( 400, 4 );
-				var material = new THREE.MeshPhongMaterial( {
-					vertexColors: THREE.FaceColors,
-					shininess: 200,
-					envMap: cubeMap
-				} );
-				//
-				// sphere = new THREE.Mesh( geometry, material );
-				// scene.add( sphere );
-
-				var loader = new THREE.OBJLoader();
-				loader.load('model/boat.obj', function ( object ) {
-
-							 boat = object;
-							 boat.position.x = - 60;
-								// object.rotation.x = 20* Math.PI / 180;
-								// object.rotation.z = 20* Math.PI / 180;
-								boat.scale.x = 150;
-								boat.scale.y = 150;
-								boat.scale.z = 150;
-								// obj = object
-						scene.add( object );
-				});
-			}
-
-
-			function animate() {
-
-				requestAnimationFrame( animate );
-				if (window.moveFront) {
-						boat.position.z += 10;
-				}
-
-				if(window.moveBack){
-						boat.position.z -= 10;		
-				}
-				render();
-
-			}
-
-			function render() {
-
-				var time = performance.now() * 0.001;
-
-				// sphere.position.y = Math.sin( time ) * 500 + 250;
-				// sphere.rotation.x = time * 0.5;
-				// sphere.rotation.z = time * 0.51;
-
-				water.material.uniforms.time.value += 1.0 / 60.0;
-				controls.update();
-				water.render();
-				renderer.render( scene, camera );
-
-			}
-
-		</script>
 	</body>
 </html>
