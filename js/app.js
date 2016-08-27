@@ -6,8 +6,10 @@ var JunnieJobs_Navi = (function(window) {
 	function init(){
      $(document).on("keydown",handleKeyDown);
      $(document).on("keyup",handleKeyUp);
+		 $('.modal-trigger').leanModal();
 	}
 
+//keyboard event를 다루는 객체를 하나 따로 만들기!
   function handleKeyDown(event) {
 
 				if (event.keyCode === 38) {
