@@ -1,7 +1,3 @@
-/**
- * @author jbouny / https://github.com/fft-ocean
- */
-
 var DEMO =
 {
 	renderer : null,
