@@ -15,15 +15,15 @@ var DEMO =
 
 		this.scene = new THREE.Scene();
 
-		this.ms_GroupShip = new THREE.Object3D();
-		this.ms_BlackPearlShip = new THREE.Object3D();
-		this.scene.add( this.ms_GroupShip );
-		this.ms_GroupShip.add( this.ms_BlackPearlShip );
+		this.groupShip = new THREE.Object3D();
+		this.blackPearlShip = new THREE.Object3D();
+		this.scene.add( this.groupShip );
+		this.groupShip.add( this.blackPearlShip );
 
-		this.camera = new THREE.PerspectiveCamera( 55.0, WINDOW.ms_Width / WINDOW.ms_Height, 0.5, 1000000 );
+		this.camera = new THREE.PerspectiveCamera( 55.0, WINDOW._Width / WINDOW._Height, 0.5, 1000000 );
 		this.camera.position.set( 0, 350, 800 );
 		this.camera.lookAt( new THREE.Vector3() );
-		this.ms_BlackPearlShip.add( this.camera );
+		this.blackPearlShip.add( this.camera );
 
 		// Initialize Orbit control
 		this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
@@ -44,7 +44,7 @@ var DEMO =
 
   InitializeLoader : function InitializeLoader() {
 
-    this.ms_Loader = new THREE.LoadingManager();
+    this.Loader = new THREE.LoadingManager();
 
     var log = function( message, type, timeout ) {
       console.log( message );
@@ -52,29 +52,29 @@ var DEMO =
     }
 
     var delay = 1500;
-    this.ms_Loader.onProgress = function( item, loaded, total ) {
+    this.Loader.onProgress = function( item, loaded, total ) {
       log( 'Loaded ' + loaded + '/' + total + ':' + item, 'info', delay );
     };
-    this.ms_Loader.onLoad = function () {
+    this.Loader.onLoad = function () {
       log( 'Loaded.', 'success', delay );
     };
-    this.ms_Loader.onError = function () {
+    this.Loader.onError = function () {
       log( 'Loading error.', 'error', delay );
     };
 
-    this.ms_ImageLoader = new THREE.ImageLoader( this.ms_Loader );
+    this.ms_ImageLoader = new THREE.ImageLoader( this.Loader );
   },
 
 	InitializeScene : function InitializeScene() {
 
 		// Add light
-		this.ms_MainDirectionalLight = new THREE.DirectionalLight( 0xffffff, 1.5 );
-		this.ms_MainDirectionalLight.position.set( -0.2, 0.5, 1 );
-		this.scene.add( this.ms_MainDirectionalLight );
+		this.mainDirectionalLight = new THREE.DirectionalLight( 0xffffff, 1.5 );
+		this.mainDirectionalLight.position.set( -0.2, 0.5, 1 );
+		this.scene.add( this.mainDirectionalLight );
 
 		// Add Black Pearl
-		var loader = new THREE.OBJMTLLoader( this.ms_Loader );
-		this.ms_BlackPearl = null;
+		var loader = new THREE.OBJMTLLoader( this.Loader );
+		this.blackPearl = null;
 		loader.load( 'models/BlackPearl/BlackPearl.obj', 'models/BlackPearl/BlackPearl.mtl', function ( object ) {
 			object.position.y = 20.0;
 			if( object.children ) {
@@ -83,8 +83,8 @@ var DEMO =
 				}
 			}
 
-			DEMO.ms_BlackPearlShip.add( object );
-			DEMO.ms_BlackPearl = object;
+			DEMO.blackPearlShip.add( object );
+			DEMO.blackPearl = object;
 		} );
 
 		// Add rain
@@ -110,24 +110,24 @@ var DEMO =
 			});
       rainMaterial.uniforms.texture.value = rainTexture;
 
-			this.ms_RainGeometry = new THREE.Geometry();
+			this.rainGeometry = new THREE.Geometry();
 			for ( i = 0; i < 100; i++ )
 			{
 				var vertex = new THREE.Vector3();
 				vertex.x = Math.random() * 2.0 * size - size;
 				vertex.y = Math.random() * 2.0 * size - size;
 				vertex.z = Math.random() * size - size * 0.5;
-				this.ms_RainGeometry.vertices.push( vertex );
+				this.rainGeometry.vertices.push( vertex );
 			}
-			this.ms_Rain = new THREE.PointCloud( this.ms_RainGeometry, rainMaterial );
-			this.camera.add( this.ms_Rain );
-			this.ms_Rain.position.setZ( - size * 0.75 ) ;
+			this.rain = new THREE.PointCloud( this.rainGeometry, rainMaterial );
+			this.camera.add( this.rain );
+			this.rain.position.setZ( - size * 0.75 ) ;
 		}
 
 		// Initialize Clouds
-		this.ms_CloudShader = new CloudShader( this.renderer );
-		this.ms_CloudShader.cloudMesh.scale.multiplyScalar( 4.0 );
-		this.scene.add( this.ms_CloudShader.cloudMesh );
+		this.cloudShader = new CloudShader( this.renderer );
+		this.cloudShader.cloudMesh.scale.multiplyScalar( 4.0 );
+		this.scene.add( this.cloudShader.cloudMesh );
 
 		// Initialize Ocean
 		var gsize = 512;
@@ -141,7 +141,7 @@ var DEMO =
 			INITIAL_WIND : [ 10.0, 10.0 ],
 			INITIAL_CHOPPINESS : 3.6,
 			CLEAR_COLOR : [ 1.0, 1.0, 1.0, 0.0 ],
-			SUN_DIRECTION : this.ms_MainDirectionalLight.position.clone(),
+			SUN_DIRECTION : this.mainDirectionalLight.position.clone(),
 			OCEAN_COLOR: new THREE.Vector3( 0.35, 0.4, 0.45 ),
 			SKY_COLOR: new THREE.Vector3( 10.0, 13.0, 15.0 ),
 			EXPOSURE : 0.15,
@@ -212,12 +212,12 @@ var DEMO =
 			side: THREE.BackSide
 		} );
 
-		this.ms_SkyBox = new THREE.Mesh(
+		this.skyBox = new THREE.Mesh(
 			new THREE.BoxGeometry( 450000, 450000, 450000 ),
 			skyBoxMaterial
 		);
 
-		this.scene.add( this.ms_SkyBox );
+		this.scene.add( this.skyBox );
 
     // https://stackoverflow.com/questions/3552944/how-to-get-the-anchor-from-the-url-using-jquery
     var url = window.location.href, idx = url.indexOf("#");
@@ -249,9 +249,9 @@ var DEMO =
 
 		this.environment = key;
 		this.raining = raining;
-		this.ms_MainDirectionalLight.position.copy( directionalLightPosition );
-		this.ms_MainDirectionalLight.color.copy( directionalLightColor );
-		this.ocean.materialOcean.uniforms.u_sunDirection.value.copy( this.ms_MainDirectionalLight.position );
+		this.mainDirectionalLight.position.copy( directionalLightPosition );
+		this.mainDirectionalLight.color.copy( directionalLightColor );
+		this.ocean.materialOcean.uniforms.u_sunDirection.value.copy( this.mainDirectionalLight.position );
 
     var background = [
 			'img/' + textureName + '_west' + textureExt,
@@ -289,7 +289,7 @@ var DEMO =
     cubeMap.magFilter = THREE.LinearFilter;
     cubeMap.minFilter = THREE.LinearFilter;
 
-		this.ms_SkyBox.material.uniforms['tCube'].value = cubeMap;
+		this.skyBox.material.uniforms['tCube'].value = cubeMap;
 	},
 
 	Display : function () {
@@ -313,25 +313,25 @@ var DEMO =
 				var x = Math.sin( seed++ ) * 10000;
 				return x - Math.floor( x );
 			}
-			for( i in this.ms_RainGeometry.vertices )
+			for( i in this.rainGeometry.vertices )
 			{
 				var speed = 4.0;
-				this.ms_RainGeometry.vertices[i].y -= fastRandom() * speed + speed;
-				if( this.ms_RainGeometry.vertices[i].y < -50 )
-					this.ms_RainGeometry.vertices[i].y = 50;
+				this.rainGeometry.vertices[i].y -= fastRandom() * speed + speed;
+				if( this.rainGeometry.vertices[i].y < -50 )
+					this.rainGeometry.vertices[i].y = 50;
 			}
-			this.ms_Rain.rotation.set( -this.camera.rotation.x, -this.camera.rotation.y, -this.camera.rotation.z, "ZYX" );
-			this.ms_RainGeometry.verticesNeedUpdate = true;
+			this.rain.rotation.set( -this.camera.rotation.x, -this.camera.rotation.y, -this.camera.rotation.z, "ZYX" );
+			this.rainGeometry.verticesNeedUpdate = true;
 		}
 
 		// Render ocean reflection
-		this.camera.remove( this.ms_Rain );
+		this.camera.remove( this.rain );
 		this.ocean.render();
 		if( this.raining )
-			this.camera.add( this.ms_Rain );
+			this.camera.add( this.rain );
 
 		// Updade clouds
-		this.ms_CloudShader.update();
+		this.cloudShader.update();
 
 		// Update ocean data
 		this.ocean.update();
