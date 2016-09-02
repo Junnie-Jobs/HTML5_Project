@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+		<link rel="stylesheet" href="css/materialize.css">
 		<script src='https://code.jquery.com/jquery-3.1.0.min.js' integrity='sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s='   crossorigin='anonymous'></script>
 	</head>
 	<body>
@@ -14,30 +14,33 @@
 		<div class="background_option">
 			<div class="daytime">day</div>
 			<div class="night">night</div>
-		  <a class="waves-effect waves-light btn modal-trigger show" href="#modal1">Modal</a>
+			<div class="sunrise">sunrise</div>
+			<div class="sunset">sunset</div>
+			<div class="rainy"><a href="whether/rainy.html">rainy</a></div>
 		</div>
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content island_A_video">
-      <h4>About airplane</h4>
-			<iframe width="560" height="315" src="https://www.youtube.com/embed/lJype_TafRk" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
 
+		<script src="lib/jquery-1.12.0.js"></script>
 		<script src="lib/three.js"></script>
-		<script src="js/OBJLoader.js"></script>
-		<script src="js/controls/OrbitControls.js"></script>
-		<script src="js/Mirror.js"></script>
-		<script src="js/WaterShader.js"></script>
-		<script src="js/Detector.js"></script>
-		<script src="js/libs/stats.min.js"></script>
-		<script src="js/THREEx.WindowResize.js"></script>
-		<script src="js/THREEx.KeyboardState.js"></script>
-		<script src="js/THREEx.FullScreen.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-	 <script src="js/THREE.TargetCamera.js"></script>
-		<script src="js/rendering.js"></script>
+		<script src="lib/OBJLoader.js"></script>
+		<script src="lib/controls/OrbitControls.js"></script>
+		<script src="lib/Mirror.js"></script>
+		<script src="lib/WaterShader.js"></script>
+		<script src="lib/Detector.js"></script>
+		<script src="lib/stats.min.js"></script>
+		<script src="lib/THREEx.KeyboardState.js"></script>
+		<script src="lib/THREEx.WindowResize.js"></script>
+		<script src="lib/THREEx.FullScreen.js"></script>
+		<script src="lib/materialize.js"></script>
+		<script src="lib/RainShader.js"></script>
+
+		<script src="lib/ParticleEngine.js"></script>
+<script src="lib/ParticleEngineExamples.js"></script>
+<script src="lib/DAT.GUI.min.js"></script>
+
 		<script src="js/app.js"></script>
+
+		<script src="js/rendering.js"></script>
+
 
 	</body>
 </html>
