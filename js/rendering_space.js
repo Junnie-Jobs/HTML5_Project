@@ -8,6 +8,7 @@ var JunnieJobs_Render_Space = (function(window) {
   var controls;
   var keyboard = new THREEx.KeyboardState();
   var moon;
+  var earth, jupiter, pluto, neptune, saturn;
 
   function init() {
 
@@ -199,10 +200,16 @@ var JunnieJobs_Render_Space = (function(window) {
 
     if (keyboard.pressed("D")) {
       boat.position.y -= 5;
-      // if (boat.position.y < -700) {
-      //   window.location.href = ("../JunnieJobsBlog.html");
-      // }
+      if (boat.position.y < -700) {
+        window.location.href = ("../JunnieJobsBlog.html");
+      }
     }
+
+    earth.rotation.y += 0.006;
+    pluto.rotation.y += 0.007;
+    saturn.rotation.y += 0.002;
+    neptune.rotation.y += 0.05;
+    jupiter.rotation.y += 0.002;
 
     render();
   }
@@ -225,14 +232,14 @@ var JunnieJobs_Render_Space = (function(window) {
       bumpMap: texture,
       bumpScale: 0.02,
     })
-    var jupiter = new THREE.Mesh(geometry, material);
+    jupiter = new THREE.Mesh(geometry, material);
 
     jupiter.position.x = -5260;
-    jupiter.position.y = -50;
-    jupiter.position.z = -13293;
-    jupiter.scale.x = 2000;
-    jupiter.scale.y = 2000;
-    jupiter.scale.z = 2000;
+    jupiter.position.y = 3500;
+    jupiter.position.z = -28293;
+    jupiter.scale.x = 10000;
+    jupiter.scale.y = 10000;
+    jupiter.scale.z = 10000;
     scene.add(jupiter);
   }
 
@@ -245,7 +252,7 @@ var JunnieJobs_Render_Space = (function(window) {
       specularMap: THREE.ImageUtils.loadTexture('images/earthspec1k.jpg'),
       specular: new THREE.Color('grey'),
     });
-    var earth = new THREE.Mesh(geometry, material);
+    earth = new THREE.Mesh(geometry, material);
     //boat position -60 0 300
     earth.position.x = 60;
     earth.position.y = -1300;
@@ -265,7 +272,7 @@ var JunnieJobs_Render_Space = (function(window) {
       bumpScale: 0.005,
     });
 
-    var pluto = new THREE.Mesh(geometry, material);
+    pluto = new THREE.Mesh(geometry, material);
     pluto.position.x = -5060;
     pluto.position.y = -50;
     pluto.position.z = 1503;
@@ -285,7 +292,7 @@ var JunnieJobs_Render_Space = (function(window) {
       bumpScale: 0.05,
     })
 
-    var neptune = new THREE.Mesh(geometry, material);
+    neptune = new THREE.Mesh(geometry, material);
     neptune.position.x = -14060;
     neptune.position.y = -50;
     neptune.position.z = -3503;
@@ -305,7 +312,7 @@ var JunnieJobs_Render_Space = (function(window) {
       bumpScale: 0.05,
     });
 
-    var saturn = new THREE.Mesh(geometry, material);
+    saturn = new THREE.Mesh(geometry, material);
     saturn.position.x = -3060;
     saturn.position.y = -50;
     saturn.position.z = 8503;
