@@ -1,9 +1,15 @@
-# HTML5_Project
+# Naviagation Blog
+이 프로젝트는 '항해하는 돛단배'라는 컨셉으로, WEBGL을 이용해 만든 3D blog입니다.
 
-Three.js에 대한 개념을 정리해나가고 있는 에버노트 페이지입니다. 계속해서 추가할 예정입니다.
-https://www.evernote.com/l/ALeJaRh8jcdIMb4pqZ9WbC5AYqpFQqI-jOo
+## 해상
+![](https://github.com/Junnie-Jobs/storage/blob/master/NHN%20NEXT/webGlBlog/onthesea.gif?raw=true)
 
-### Naviagation Blog
+## 해저
+![](https://github.com/Junnie-Jobs/storage/blob/master/NHN%20NEXT/webGlBlog/undersea.gif?raw=true)
+
+## 우주
+![](https://github.com/Junnie-Jobs/storage/blob/master/NHN%20NEXT/webGlBlog/galaxy.gif?raw=true)
+
 
 ### 프로젝트 : 스토리텔링 기반을 위한 블로그 만들기. 컨셉은 항해하는 돛단배
 
